@@ -7,7 +7,7 @@ import (
 	"github.com/gin-gonic/gin"
 	"google.golang.org/grpc"
 
-	pb "micro-service/apps/user/pb"
+	pb "micro-service/apps/user/service"
 )
 
 func LoginEndpoint(c *gin.Context) {
@@ -18,6 +18,6 @@ func LoginEndpoint(c *gin.Context) {
 	}
 	defer conn.Close()
 
-	server := pb.NewGreeterClient(conn)
+	server := pb.NewLoginClient(conn)
 	c.String(http.StatusOK, "Login Success")
 }
