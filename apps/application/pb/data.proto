@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option go_package ="micro-service/apps/application/pb";
+
+service DataCenter {
+  rpc GetApplication (GetApplicationRequest) returns (GetApplicationResponse) {}
+}
+
+
+message GetApplicationRequest {
+  string identifier = 1;
+}
+
+message GetApplicationResponse {
+  string message = 1;
+}
